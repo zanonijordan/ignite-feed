@@ -1,0 +1,29 @@
+.post {
+    background-color: rgb(41, 41, 41);
+    border-radius: 8px;
+    padding: 2.5rem;
+}
+
+.post + .post {
+    margin-top: 2rem;
+}
+
+.content{
+    line-height: 1.6rem;
+    color: rgb(121, 121, 121);
+    margin-top: 1.5rem;
+}
+
+.content p {
+    margin-top: 1rem;
+}
+
+.content a {
+    font-weight: bold;
+    color: #00b37e;
+    text-decoration: none;
+}
+
+.content a:hover {
+    color: #09e0a0;
+}
