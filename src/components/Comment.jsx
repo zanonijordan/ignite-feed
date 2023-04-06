@@ -1,10 +1,11 @@
 import { AlignCenterHorizontalSimple, ThumbsUp, Trash } from 'phosphor-react';
 import styles from './Comment.module.css';
+import { Avatar } from './Avatar';
 
 export function Comment() {
     return (
     <div className={styles.comment}>
-        <img src='https://avatars.githubusercontent.com/u/52969396?v=4' alt='' />
+        <Avatar src='https://avatars.githubusercontent.com/u/52969396?v=4' />
         <div className={styles.commentBox}>
             <div className={styles.commentContent}>
                 <header>
