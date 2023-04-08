@@ -4,6 +4,36 @@ import {Post} from './components/Post'
 import { Sidebar } from './components/Sidebar';
 
 import styles from './App.module.css';
+const post = [
+    {
+        id: 1,
+        author: {
+            avatarURL: 'https://avatars.githubusercontent.com/u/52969396?v=4',
+            name: 'Jordan Zanoni',
+            role: 'Web developer',
+        },
+        content: [
+            {type: 'paragraph', content: 'Fala galeraa 👋'},
+            {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+            {type: 'link', content: 'jane.design/doctorcare'},
+        ],
+        publishedAt: new Date('2023-05-03 20:00:00'),
+    },
+    {
+        id: 2,
+        author: {
+            avatarURL: 'https://avatars.githubusercontent.com/u/52969396?v=4',
+            name: 'Sandra Zanoni',
+            role: 'Mannager',
+        },
+        content: [
+            {type: 'paragraph', content: 'Fala galeraa 👋'},
+            {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+            {type: 'link', content: 'jane.design/doctorcare'},
+        ],
+        publishedAt: new Date('2023-10-03 10:00:00'),
+    },
+];
 
 function App() {
     const [count, setCount] = useState(0)
@@ -15,12 +45,14 @@ function App() {
             <div className={styles.wrapper}>
                 <Sidebar />
                 <main>
-                    <Post
-                        author='Jordan Zanoni'
-                        content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                        optio, eaque rerum! Provident similique accusantium nemo autem.'/>
+                    {post.map( post => {
+                        return (
+                            <Post author={post.author}
+                                content={post.content}
+                                publishAt={post.publishedAt}
+                            />
+                        )
+                    })}
                 </main>
 
             </div>

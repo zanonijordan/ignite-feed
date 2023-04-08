@@ -1,19 +1,28 @@
+import { format} from 'date-fns';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export const Post = () =>{
+
+
+export const Post = ({ author, content, publishedAt}) =>{
+    const publishedDateFormatted = new Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
+    }).format(publishedAt);
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar hasBorder src='https://avatars.githubusercontent.com/u/52969396?v=4' />
+                    <Avatar hasBorder src={author.avatarURL} />
                     <div className={styles.authorInfo}>
-                        <strong>Jordan Zanoni</strong>
-                        <span>Web Develober</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
-                <time title='04 de maio as 17:25h' dateTime='2023-05-04 17:25h'>Publicado ha 1h</time>
+                <time title='04 de maio as 17:25h' dateTime='2023-05-04 17:25h'>{publishedDateFormatted}</time>
             </header>
             <div className={styles.content}>
             <p>Fala galeraa 👋</p>
